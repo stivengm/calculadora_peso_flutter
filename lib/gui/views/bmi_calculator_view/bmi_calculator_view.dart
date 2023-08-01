@@ -4,8 +4,15 @@ import 'package:calculadora_peso_flutter/gui/widgets/primary_button.dart';
 import 'package:calculadora_peso_flutter/gui/widgets/text_widget.dart';
 import 'package:calculadora_peso_flutter/gui/styles.dart';
 
-class BMICalculatorView extends StatelessWidget {
+class BMICalculatorView extends StatefulWidget {
   const BMICalculatorView({ Key? key }) : super( key: key );
+
+  @override
+  State<BMICalculatorView> createState() => _BMICalculatorViewState();
+}
+
+class _BMICalculatorViewState extends State<BMICalculatorView> {
+  double valueSlider = 150.0;
 
   @override
   Widget build(BuildContext context) {
@@ -52,9 +59,19 @@ class BMICalculatorView extends StatelessWidget {
             ),
             _cardItems(
               item: Column(
-                children: const [
-                  TextWidget(text: "Altura"),
-                  TextWidget(text: "170 cm")
+                children: [
+                  const TextWidget(text: "Altura"),
+                  TextWidget(text: "${valueSlider.toInt()} cm"),
+                  Slider(
+                    value: valueSlider,
+                    min: 50,
+                    max: 250,
+                    onChanged: (double value) {
+                      setState(() {
+                        valueSlider = value;
+                      });
+                    },
+                  )
                 ],
               )
             ),
@@ -118,7 +135,6 @@ class BMICalculatorView extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(20.0),
       width: width ?? double.infinity,
-      // width: double.infinity,
       decoration: BoxDecoration(
         color: cardColor,
         borderRadius: BorderRadius.circular(20.0)
@@ -126,5 +142,4 @@ class BMICalculatorView extends StatelessWidget {
       child: item,
     );
   }
-
 }
