@@ -98,7 +98,6 @@ class BMICalculatorView extends StatelessWidget {
                           ]
                         )
                       ),
-                      // const TextWidget(text: "20 Años", fontSize: 20.0,)
                     ],
                   ),
                   width: (media.width - 40) / 2 - 5
