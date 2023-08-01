@@ -13,8 +13,9 @@ class BMICalculatorView extends StatelessWidget {
     return Scaffold(
       backgroundColor: backgroundColor,
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             const TextWidget(text: "Calculadora de peso ideal", fontSize: 30.0,),
             Row(
@@ -23,6 +24,11 @@ class BMICalculatorView extends StatelessWidget {
                 _cardItems(
                   item: Column(
                     children: const [
+                      Icon(
+                        Icons.male,
+                        color: Colors.white,
+                        size: 60.0,
+                      ),
                       TextWidget(text: "Masculino")
                     ],
                   ),
@@ -32,7 +38,12 @@ class BMICalculatorView extends StatelessWidget {
                 _cardItems(
                   item: Column(
                     children: const [
-                      TextWidget(text: "Femenino")
+                      Icon(
+                        Icons.female,
+                        color: Colors.white,
+                        size: 60.0,
+                      ),
+                      TextWidget(text: "Femenino"),
                     ],
                   ),
                   width: (media.width - 40) / 2 - 5
@@ -46,6 +57,30 @@ class BMICalculatorView extends StatelessWidget {
                   TextWidget(text: "170 cm")
                 ],
               )
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                _cardItems(
+                  item: Column(
+                    children: const [
+                      TextWidget(text: "Peso"),
+                      TextWidget(text: "50 Kg")
+                    ],
+                  ),
+                  width: (media.width - 40) / 2 - 5
+                  // width: 50.0
+                ),
+                _cardItems(
+                  item: Column(
+                    children: const [
+                      TextWidget(text: "Edad"),
+                      TextWidget(text: "20 Años")
+                    ],
+                  ),
+                  width: (media.width - 40) / 2 - 5
+                ),
+              ],
             ),
             SizedBox(
               width: media.width * .8,
