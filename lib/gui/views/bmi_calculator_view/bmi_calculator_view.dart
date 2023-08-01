@@ -86,7 +86,18 @@ class _BMICalculatorViewState extends State<BMICalculatorView> {
               item: Column(
                 children: [
                   const TextWidget(text: "Altura"),
-                  TextWidget(text: "${valueSlider.toInt()} cm"),
+                  RichText(
+                    text: TextSpan(
+                      text: '${valueSlider.toInt()}',
+                      style: const TextStyle( fontSize: 25.0, fontWeight: FontWeight.bold ),
+                      children: const [
+                        TextSpan(
+                          text: ' cm',
+                          style: TextStyle( fontSize: 15.0 )
+                        )
+                      ]
+                    )
+                  ),
                   Slider(
                     thumbColor: secundaryButton,
                     activeColor: selectedColor.withOpacity(.3),
