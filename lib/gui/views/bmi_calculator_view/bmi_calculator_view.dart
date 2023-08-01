@@ -63,9 +63,20 @@ class BMICalculatorView extends StatelessWidget {
               children: [
                 _cardItems(
                   item: Column(
-                    children: const [
-                      TextWidget(text: "Peso"),
-                      TextWidget(text: "50 Kg")
+                    children: [
+                      const TextWidget(text: "Peso"),
+                      RichText(
+                        text: const TextSpan(
+                          text: '50',
+                          style: TextStyle( fontSize: 25.0, fontWeight: FontWeight.bold ),
+                          children: [
+                            TextSpan(
+                              text: ' Kg',
+                              style: TextStyle( fontSize: 15.0 )
+                            )
+                          ]
+                        )
+                      ),
                     ],
                   ),
                   width: (media.width - 40) / 2 - 5
@@ -73,9 +84,21 @@ class BMICalculatorView extends StatelessWidget {
                 ),
                 _cardItems(
                   item: Column(
-                    children: const [
-                      TextWidget(text: "Edad"),
-                      TextWidget(text: "20 Años")
+                    children: [
+                      const TextWidget(text: "Edad"),
+                      RichText(
+                        text: const TextSpan(
+                          text: '20',
+                          style: TextStyle( fontSize: 25.0, fontWeight: FontWeight.bold ),
+                          children: [
+                            TextSpan(
+                              text: ' Años',
+                              style: TextStyle( fontSize: 15.0 )
+                            )
+                          ]
+                        )
+                      ),
+                      // const TextWidget(text: "20 Años", fontSize: 20.0,)
                     ],
                   ),
                   width: (media.width - 40) / 2 - 5
