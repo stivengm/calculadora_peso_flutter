@@ -13,6 +13,7 @@ class BMICalculatorView extends StatefulWidget {
 
 class _BMICalculatorViewState extends State<BMICalculatorView> {
   double valueSlider = 150.0;
+  int gender = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -28,32 +29,56 @@ class _BMICalculatorViewState extends State<BMICalculatorView> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                _cardItems(
-                  item: Column(
-                    children: const [
-                      Icon(
-                        Icons.male,
-                        color: Colors.white,
-                        size: 60.0,
-                      ),
-                      TextWidget(text: "Masculino")
-                    ],
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      if (gender == 1) {
+                        gender = 0;
+                      } else {
+                        gender = 1;
+                      }
+                    });
+                  },
+                  child: _cardItems(
+                    item: Column(
+                      children: const [
+                        Icon(
+                          Icons.male,
+                          color: Colors.white,
+                          size: 60.0,
+                        ),
+                        TextWidget(text: "Masculino")
+                      ],
+                    ),
+                    colorItem: gender == 1 ? selectedColor :  cardColor,
+                    width: (media.width - 40) / 2 - 5
+                    // width: 50.0
                   ),
-                  width: (media.width - 40) / 2 - 5
-                  // width: 50.0
                 ),
-                _cardItems(
-                  item: Column(
-                    children: const [
-                      Icon(
-                        Icons.female,
-                        color: Colors.white,
-                        size: 60.0,
-                      ),
-                      TextWidget(text: "Femenino"),
-                    ],
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      if (gender == 2) {
+                        gender = 0;
+                      } else {
+                        gender = 2;
+                      }
+                    });
+                  },
+                  child: _cardItems(
+                    item: Column(
+                      children: const [
+                        Icon(
+                          Icons.female,
+                          color: Colors.white,
+                          size: 60.0,
+                        ),
+                        TextWidget(text: "Femenino"),
+                      ],
+                    ),
+                    colorItem: gender == 2 ? selectedColor :  cardColor,
+                    width: (media.width - 40) / 2 - 5
                   ),
-                  width: (media.width - 40) / 2 - 5
                 ),
               ],
             ),
@@ -134,12 +159,12 @@ class _BMICalculatorViewState extends State<BMICalculatorView> {
     );
   }
 
-  Widget _cardItems({ required Widget item, double? width }) {
+  Widget _cardItems({ required Widget item, double? width, Color? colorItem }) {
     return Container(
       padding: const EdgeInsets.all(20.0),
       width: width ?? double.infinity,
       decoration: BoxDecoration(
-        color: cardColor,
+        color: colorItem ?? cardColor,
         borderRadius: BorderRadius.circular(20.0)
       ),
       child: item,
