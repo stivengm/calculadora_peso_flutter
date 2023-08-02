@@ -1,4 +1,4 @@
-import 'package:calculadora_peso_flutter/gui/views/bmi_calculator_view/bmi_calculator_view.dart';
+import 'package:calculadora_peso_flutter/core/config/app_path.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +17,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         useMaterial3: true
       ),
-      home: const BMICalculatorView(),
+      initialRoute: 'calculator',
+      routes: routesApp(),
     );
   }
 }

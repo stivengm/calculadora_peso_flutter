@@ -238,8 +238,8 @@ class _BMICalculatorViewState extends State<BMICalculatorView> {
       );
       return;
     }
-    
-    print("Si está la info completa");
+
+    Navigator.pushNamed(context, 'result');
   }
 
   Widget _cardItems({ required Widget item, double? width, Color? colorItem }) {
