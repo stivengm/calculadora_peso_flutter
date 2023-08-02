@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:fluttertoast/fluttertoast.dart';
+
 import 'package:calculadora_peso_flutter/gui/widgets/primary_button.dart';
 import 'package:calculadora_peso_flutter/gui/widgets/text_widget.dart';
 import 'package:calculadora_peso_flutter/gui/styles.dart';
@@ -215,12 +217,29 @@ class _BMICalculatorViewState extends State<BMICalculatorView> {
             ),
             SizedBox(
               width: media.width * .8,
-              child: PrimaryButton(text: "Calcular", onPressed: () {},),
+              child: PrimaryButton(text: "Calcular", onPressed: next,),
             ),
           ],
         ),
       ),
     );
+  }
+
+  next() {
+    if (gender == 0) {
+      Fluttertoast.showToast(
+        msg: "Por favor selecciona el género",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.BOTTOM,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 16.0
+      );
+      return;
+    }
+    
+    print("Si está la info completa");
   }
 
   Widget _cardItems({ required Widget item, double? width, Color? colorItem }) {
