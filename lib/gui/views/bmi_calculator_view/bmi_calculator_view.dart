@@ -26,12 +26,29 @@ class _BMICalculatorViewState extends State<BMICalculatorView> {
     return Scaffold(
       backgroundColor: backgroundColor,
       appBar: AppBar(
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 8.0),
-          child: SvgPicture.asset('assets/menu.svg'),
+        leading: Builder(
+          builder: (BuildContext context) {
+            return GestureDetector(
+              child: SvgPicture.asset('assets/menu.svg'),
+              onTap: () => Scaffold.of(context).openDrawer(),
+            );
+          }
         ),
-        leadingWidth: 38.0,
+        leadingWidth: 30.0,
         backgroundColor: Colors.transparent,
+      ),
+      drawer: NavigationDrawer(
+        children: [
+          ListTile(
+            leading: const Icon(
+              Icons.home,
+            ),
+            title: const Text('Page 1'),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+        ]
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
