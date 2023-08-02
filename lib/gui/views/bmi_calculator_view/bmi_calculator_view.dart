@@ -15,6 +15,7 @@ class _BMICalculatorViewState extends State<BMICalculatorView> {
   double valueSlider = 150.0;
   int gender = 0;
   int age = 20;
+  int weight = 245;
 
   @override
   Widget build(BuildContext context) {
@@ -123,10 +124,10 @@ class _BMICalculatorViewState extends State<BMICalculatorView> {
                     children: [
                       const TextWidget(text: "Peso"),
                       RichText(
-                        text: const TextSpan(
-                          text: '50',
-                          style: TextStyle( fontSize: 25.0, fontWeight: FontWeight.bold ),
-                          children: [
+                        text: TextSpan(
+                          text: weight.toString(),
+                          style: const TextStyle( fontSize: 25.0, fontWeight: FontWeight.bold ),
+                          children: const [
                             TextSpan(
                               text: ' Kg',
                               style: TextStyle( fontSize: 15.0 )
@@ -134,6 +135,31 @@ class _BMICalculatorViewState extends State<BMICalculatorView> {
                           ]
                         )
                       ),
+                      const SizedBox( height: 8.0),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          _buttonRemove(
+                            () {
+                              setState(() {
+                                if (weight >= 2) {
+                                  weight = weight - 1;
+                                }
+                              });
+                            }
+                          ),
+                          const SizedBox( width: 10.0 ),
+                          _buttonsAdd(
+                            () {
+                             setState(() {
+                                if (weight <= 249) {
+                                  weight = weight + 1;
+                                }
+                              }); 
+                            }
+                          ),
+                        ],
+                      )
                     ],
                   ),
                   width: (media.width - 40) / 2 - 5
