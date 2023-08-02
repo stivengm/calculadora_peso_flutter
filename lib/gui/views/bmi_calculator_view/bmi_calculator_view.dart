@@ -14,6 +14,7 @@ class BMICalculatorView extends StatefulWidget {
 class _BMICalculatorViewState extends State<BMICalculatorView> {
   double valueSlider = 150.0;
   int gender = 0;
+  int age = 20;
 
   @override
   Widget build(BuildContext context) {
@@ -143,17 +144,42 @@ class _BMICalculatorViewState extends State<BMICalculatorView> {
                     children: [
                       const TextWidget(text: "Edad"),
                       RichText(
-                        text: const TextSpan(
-                          text: '20',
-                          style: TextStyle( fontSize: 25.0, fontWeight: FontWeight.bold ),
+                        text: TextSpan(
+                          text: age.toString(),
+                          style: const TextStyle( fontSize: 25.0, fontWeight: FontWeight.bold ),
                           children: [
                             TextSpan(
-                              text: ' Años',
-                              style: TextStyle( fontSize: 15.0 )
+                              text: age == 1 ? ' Año' : ' Años',
+                              style: const TextStyle( fontSize: 15.0 )
                             )
                           ]
                         )
                       ),
+                      const SizedBox( height: 8.0),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          _buttonRemove(
+                            () {
+                              setState(() {
+                                if (age >= 2) {
+                                  age = age - 1;
+                                }
+                              });
+                            }
+                          ),
+                          const SizedBox( width: 10.0 ),
+                          _buttonsAdd(
+                            () {
+                             setState(() {
+                                if (age <= 99) {
+                                  age = age + 1;
+                                }
+                              }); 
+                            }
+                          ),
+                        ],
+                      )
                     ],
                   ),
                   width: (media.width - 40) / 2 - 5
@@ -181,4 +207,43 @@ class _BMICalculatorViewState extends State<BMICalculatorView> {
       child: item,
     );
   }
+
+  Widget _buttonsAdd(VoidCallback action) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(50),
+      child: Material(
+        color: selectedColor,
+        child: InkWell(
+          onTap: action,
+          child: const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+            child: Icon(
+              Icons.add,
+              color: Colors.white,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buttonRemove(VoidCallback action) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(50),
+      child: Material(
+        color: selectedColor,
+        child: InkWell(
+          onTap: action,
+          child: const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+            child: Icon(
+              Icons.remove,
+              color: Colors.white,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
 }
