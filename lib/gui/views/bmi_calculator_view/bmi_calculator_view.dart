@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -24,12 +25,19 @@ class _BMICalculatorViewState extends State<BMICalculatorView> {
     Size media = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: backgroundColor,
+      appBar: AppBar(
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 8.0),
+          child: SvgPicture.asset('assets/menu.svg'),
+        ),
+        leadingWidth: 38.0,
+        backgroundColor: Colors.transparent,
+      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const SizedBox(),
             const TextWidget(text: "Calculadora de peso ideal", fontSize: 20.0,),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
