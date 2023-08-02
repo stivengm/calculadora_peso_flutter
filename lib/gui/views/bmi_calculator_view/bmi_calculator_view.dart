@@ -73,7 +73,7 @@ class _BMICalculatorViewState extends State<BMICalculatorView> {
                     item: Column(
                       children: const [
                         Icon(
-                          Icons.male,
+                          Icons.male_rounded,
                           color: Colors.white,
                           size: 60.0,
                         ),
@@ -99,7 +99,7 @@ class _BMICalculatorViewState extends State<BMICalculatorView> {
                     item: Column(
                       children: const [
                         Icon(
-                          Icons.female,
+                          Icons.female_rounded,
                           color: Colors.white,
                           size: 60.0,
                         ),
