@@ -27,7 +27,8 @@ class _BMICalculatorViewState extends State<BMICalculatorView> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const TextWidget(text: "Calculadora de peso ideal", fontSize: 30.0,),
+            const SizedBox(),
+            const TextWidget(text: "Calculadora de peso ideal", fontSize: 20.0,),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
