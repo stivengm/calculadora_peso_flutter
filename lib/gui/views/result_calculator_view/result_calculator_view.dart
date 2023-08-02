@@ -38,7 +38,7 @@ class ResultCalculatorView extends StatelessWidget {
       resultText = 'Obesidad clase 3 (Mórbida)';
     } else if (bmiFormatted > 50.0) {
       // Obesity Class V (super-obesity)
-      resultText = 'Obesidad clase 5 (Super obeso)';
+      resultText = 'Obesidad clase 4 (Extrema)';
     }
     return Scaffold(
       backgroundColor: backgroundColor,
