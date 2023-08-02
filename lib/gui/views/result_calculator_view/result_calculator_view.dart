@@ -46,35 +46,44 @@ class ResultCalculatorView extends StatelessWidget {
         backgroundColor: Colors.transparent,
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+        padding: const EdgeInsets.only(left: 20.0, right: 20.0, bottom: 10.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const TextWidget(text: 'RESULTADO'),
-            Container(
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: cardColor,
-                borderRadius: BorderRadius.circular(20)
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(40.0),
+            Expanded(
+              child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    TextWidget(text: resultText, fontSize: 30.0),
-                    const SizedBox(height: 15.0),
-                    const Divider(),
-                    const SizedBox(height: 15.0),
-                    TextWidget(text: '$bmiFormatted', fontSize: 50.0),
-                    const SizedBox(height: 15.0),
-                    const Divider(),
-                    const SizedBox(height: 15.0),
-                    const TextWidget(text: 'Adding a Drawer to your app helps you navigate inside your app. In this tutorial, we learned how to change drawer icon in Flutter with practical examples. We also explored how to change the color and size of the drawer icon step by step.')
+                    const TextWidget(text: 'RESULTADO'),
+                    Container(
+                      margin: const EdgeInsets.symmetric(vertical: 15.0),
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        color: cardColor,
+                        borderRadius: BorderRadius.circular(20)
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(40.0),
+                        child: Column(
+                          children: [
+                            TextWidget(text: resultText, fontSize: 30.0),
+                            const SizedBox(height: 15.0),
+                            const Divider(),
+                            const SizedBox(height: 15.0),
+                            TextWidget(text: '$bmiFormatted', fontSize: 50.0),
+                            const SizedBox(height: 15.0),
+                            const Divider(),
+                            const SizedBox(height: 15.0),
+                            const TextWidget(text: 'Adding a Drawer to your app helps you navigate inside your app. In this tutorial, we learned how to change drawer icon in Flutter with practical examples. We also explored how to change the color and size of the drawer icon step by step.')
+                          ],
+                        ),
+                      ),
+                    ),
                   ],
                 ),
-              ),
+              )
             ),
-            PrimaryButton(text: 'Volver a calcular', onPressed: () {})
+            PrimaryButton(text: 'Volver a calcular', onPressed: () => Navigator.pop(context))
           ],
         ),
       ),
