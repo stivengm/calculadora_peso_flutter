@@ -15,7 +15,7 @@ class _BMICalculatorViewState extends State<BMICalculatorView> {
   double valueSlider = 150.0;
   int gender = 0;
   int age = 20;
-  int weight = 245;
+  int weight = 50;
 
   @override
   Widget build(BuildContext context) {
