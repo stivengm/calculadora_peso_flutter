@@ -46,7 +46,7 @@ class ResultCalculatorView extends StatelessWidget {
         backgroundColor: Colors.transparent,
       ),
       body: Padding(
-        padding: const EdgeInsets.only(left: 20.0, right: 20.0, bottom: 10.0),
+        padding: const EdgeInsets.only(left: 20.0, right: 20.0, bottom: 15.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

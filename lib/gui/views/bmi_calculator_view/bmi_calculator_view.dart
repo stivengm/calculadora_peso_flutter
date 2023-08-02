@@ -240,10 +240,7 @@ class _BMICalculatorViewState extends State<BMICalculatorView> {
                 ),
               ],
             ),
-            SizedBox(
-              width: media.width * .8,
-              child: PrimaryButton(text: "Calcular", onPressed: next,),
-            ),
+            PrimaryButton(text: "Calcular", onPressed: next),
           ],
         ),
       ),
